@@ -11,6 +11,8 @@ int main(){
     int len=0;
     for(int i=0;i<n;i++){
         sum+=a[i];
+        if(mp.end()==mp.find(sum))
+            mp[sum]=i;
         if(sum==k)
             len=max(len,i+1);
         int z=sum-k;
@@ -18,8 +20,7 @@ int main(){
             int maxx=i-mp[z];
             len=max(len,maxx);
         }
-        if(mp.end()==mp.find(sum))
-            mp[sum]=i;
+        
     }
     cout<<len;
     return 0;
